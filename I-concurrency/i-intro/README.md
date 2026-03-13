@@ -50,3 +50,10 @@ pthread_mutex_unlock(&lock);
     ```
 
 - See program which uses lock to solve race condition: [mutex-lock](./code/iii-lock.c)
+
+## Conditional Variables
+
+- These variables are important if there is relation between the threads, and some kind of signalling is involved within them.
+- For example, if one thread needs to proceed only if the other thread will do it's work. Such as shared buffer, where one thread will produce something and one thread will consume something.
+- To use these variables we need locks.
+- See program for more clarity: [conditional-variable](./code/iv-conditional-variable.c)
