@@ -62,4 +62,20 @@
 
 - We will use queue and two OS routines: `park()` and `unpark(thread_id)`.
 - `park` will make calling thrad to sleep and `unpark` will wake up thread with the thread_id.
-- This lock will
+- This lock solves every problem, spin lock, mutual exclusion everything.
+- We are using queue here, and for controlled access to the queue we are using guard to prevent the multiple threads to access the queue at the same time.
+- Whenever lock is busy and thread wants to execute the critical section, it will add itself to queue and sleep. Thus preventing spin-lock.
+- Now but there is one problem here, let's say one thread-T1 came and lock was not available, so it will add itself to the queue, then the thread(T2) which had lock, it called unpark with tid of T1, but T1 never went to sleep yet. So we will remove the T1's tid from the queue but after calling unpark(t1's-tid). Then T1 will go to sleep, and this will be the reason for the starvation or **wakeup/waiting race**.
+- Here we solve this by using another system call `setpark()`, this routine allows thread to tell that it's about to be parked. And hence if any other thread calls unpark then it will return immediately
+```c
+queue_add(lock->q, gettid());
+setpark(); // I am about to go to sleep
+lock->guard = 0;
+```
+
+### 8. Futex Lock
+
+- Futex = **Fast Userspace mutex**
+- This locks uses user-space lock and kernel-sleep/wakeup call.
+- Here we grab the lock in user space and if we can't then we go to kernel and sleep
+- See the high level rought implementation: [futex-lock](./code/viii-futex-lock.c)

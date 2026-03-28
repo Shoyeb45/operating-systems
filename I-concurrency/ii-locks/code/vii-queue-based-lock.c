@@ -30,7 +30,7 @@ typedef struct __lock_t {
 } lock_t;
 
 
-// note: it's not atomic
+// note: it's not an atomic
 int test_and_set(int *old_ptr, int new) {
     int old = *old_ptr;
     *old_ptr = new;
