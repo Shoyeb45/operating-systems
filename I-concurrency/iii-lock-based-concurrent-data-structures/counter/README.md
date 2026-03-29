@@ -1,7 +1,7 @@
 # Counter
 
-- Here is the simple implementation: [simple-counter-impl](./counter/counter-with-lock.c)
-- Here is the more scalable version: [scalable-version(approximate-counter)](./counter/counter-scalable);
+- Here is the simple implementation: [simple-counter-impl](./counter-simple/counter-simple.c)
+- Here is the more scalable version: [scalable-version(approximate-counter)](./counter-scalable/counter-scalable.c);
 - There is some overhead of the locks. More simple the code the better. But for larger number of threads we need scalable version.
 - Here's the rough benchmark on Apple Mac M2, 8 Gb Ram
 
