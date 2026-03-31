@@ -38,9 +38,17 @@
 |      32 |  3,200,000 |   0.390268 |         8,199,493.68 |
 |      64 |  6,400,000 |   0.756819 |         8,456,447.31 |
 |     128 | 12,800,000 |   1.466526 |         8,728,109.83 |
-
+ 
 
 <p>
     <img src="./image/scalable-list-perfo.png">
     <i>Threads vs Throughput, Time</i>
 </p>
+
+
+## NOTE, Ref - OSTEP
+
+<p>
+    <img src="./image/ostep-ref.png">
+</p>
+
