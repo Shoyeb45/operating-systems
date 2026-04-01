@@ -18,7 +18,6 @@ void* worker(void* arg) {
     for (int i = 0; i < OPS_PER_THREAD; i++) {
         queue_enqueue(&queue, i);
 
-        // try dequeue (ignore failure)
         queue_dequeue(&queue);
     }
 
@@ -48,7 +47,7 @@ int main(int argc, char** argv) {
 
     double end = get_time();
 
-    double total_ops = (double)num_threads * OPS_PER_THREAD * 2; // enqueue + dequeue
+    double total_ops = (double)num_threads * OPS_PER_THREAD * 2; // enqueue + dequeue®®
     double time_taken = end - start;
 
     printf("Threads: %d\n", num_threads);
