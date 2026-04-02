@@ -1,9 +1,10 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -pthread -I./utils
-
+CCPP = g++
+CPP_VERSION = --std=c++17
 BUILD_DIR = build
 
-QUEUE_SRC = I-concurrency/iii-lock-based-concurrent-data-structures/queue
+DATA_STRUCTURE_SRC = I-concurrency/iii-lock-based-concurrent-data-structures
 QUEUE_BUILD = $(BUILD_DIR)/queue
 
 UTILS_SRC = utils/utils.c
@@ -20,10 +21,16 @@ $(UTILS_OBJ): $(UTILS_SRC) | dirs
 # Build queue
 queue: $(UTILS_OBJ)
 	$(CC) $(CFLAGS) \
-	$(QUEUE_SRC)/concurrent-queue.c \
-	$(QUEUE_SRC)/performance.c \
-	$(UTILS_OBJ) \
+	$(DATA_STRUCTURE_SRC)/queue/concurrent-queue.c \
+	$(DATA_STRUCTURE_SRC)/queue/performance.c \
 	-o $(QUEUE_BUILD).out
+
+hash-map: $(UTILS_OBJ)
+	$(CCPP) $(CPP_VERSION) \
+	$(DATA_STRUCTURE_SRC)/hash-map/performance.cpp  \
+	$(UTILS_OBJ) \
+	-o $(BUILD_DIR)/hash-map.out
+
 
 # Clean
 clean:
