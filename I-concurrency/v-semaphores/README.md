@@ -23,3 +23,9 @@
 - We have already seen this problem, we can use the semaphores alone to solve this problem
 - Implementation: [bounder-buffer](./code/iv-producer-consumer.c)
 
+## Reader/Writer Lock
+
+- So, for some data structure, while inserting or removing, it's necesary to add locks, but while reading if the state has not changed then we can allow as many threads to go inside and read from the data.
+- So, we can implement the lock, such that, when writers are writing the data then we will not allow any threads to do any thing, but on read lock we will allow read threads but not write threads. So in this way write thread will have to wait untill all the read threads finishes read execution.
+- Now this can lead to the starvation problem for the writer, if read threads are keep coming.
+- One way is to block the new reader, when writer is waiting in the queue before existing reader completes the execution.
