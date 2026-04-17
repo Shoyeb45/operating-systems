@@ -19,3 +19,7 @@
 - See the example: [semaphore-ordering]
 
 ## Producer/Consumer(Bounded buffer) Problem
+
+- We have already seen this problem, we can use the semaphores alone to solve this problem
+- Implementation: [bounder-buffer](./code/iv-producer-consumer.c)
+
