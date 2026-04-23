@@ -29,3 +29,22 @@
 - So, we can implement the lock, such that, when writers are writing the data then we will not allow any threads to do any thing, but on read lock we will allow read threads but not write threads. So in this way write thread will have to wait untill all the read threads finishes read execution.
 - Now this can lead to the starvation problem for the writer, if read threads are keep coming.
 - One way is to block the new reader, when writer is waiting in the queue before existing reader completes the execution.
+
+## The dining philosophers problem
+
+- So this is very well known problem proposed by Djikstra. 
+- So we have 5 philosophers who are sitting in the round table and there are five forks which are placed beside them.
+
+<p align="center">
+    <img height="300px" src="./public/philo.png">
+</p>
+
+- Now when philosopher needs to eat, they need two forks, one in their right hand and one in their left hand.
+- So if each philosopher picks up the left sided fork, then each philosopher will wait for other fork. And philosopher will only release the fork, when they are done eating.
+- So here we have deadlock in this situation.
+
+
+## Implementing Semaphores
+
+- We'll implement our semaphore.
+- Let's call it, jemaphore.
