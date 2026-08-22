@@ -41,3 +41,14 @@ $$T_{turnaround
 - STCF is preemptive algorithm unlike SJF, so it's also called Preemptive Shortest Job First(PSJF).
 - Everytime a new job enters it will check which of the two - a remaining currently running process or new process have shorter time and it will execute that
 - [STCF Code](./codes/03-stcf.c)
+
+> Response Time(New Metric): $T_{response} = T_{firstrun} - T{arrival}$
+
+### 3. Round Robin
+- This algorithm runs the process for a **time slice**(aka **scheduling quantum**) and then switches to next in the queue.
+- The time slice is constant that must be careully selected and it should be multiple of timer interrupt
+- If it's too short - the performance will be better in RR, but context switch cost can donimate more than the actual performance
+- If it's too long - then the processes will not be responsible and it will behave like other algorithm
+- RR optimizes the response time but not turnaround time
+- [RR Code](./codes/04-rr.c)
+
