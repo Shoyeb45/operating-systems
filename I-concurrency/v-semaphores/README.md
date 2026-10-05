@@ -16,7 +16,7 @@
 - When thread wants to do something on specific condition, like waiting for other thread to finsh the task.
 - How we can implement this ordering based events(or conditional variable behaviour) using semaphore.
 - To achieve this we can initialize the semaphore with 0, and for going to sleep we can use the `sem_wait` and when other threads are done with their work and can wake up other thread then we'll call `sem_post`. In this way, the parent thread will end up waiting and child tread will wake it up.
-- See the example: [semaphore-ordering]
+- See the example: [semaphore-ordering](./code/iii-semaphore-ordering.c)
 
 ## Producer/Consumer(Bounded buffer) Problem
 
